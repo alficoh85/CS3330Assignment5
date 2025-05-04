@@ -2,15 +2,19 @@ package main.java.com.adoptme.model;
 
 import java.util.Arrays;
 
+/** The Shelter class takes a Pet class or any of its subclasses and stores them in an array that is resized dynamically. */
 public class Shelter<T extends Pet> {
 	private T[] pets;
 	private int size;
 
+	/** Default constructor, makes a new Shelter object with no pets */
 	public Shelter() {
 		pets = (T[]) new Pet[0];
 		size = 0;
 	}
 	
+	/** Parameterized constructor, takes a Pet array and adds any non-null pets into the shelter
+	 * @param pets - The array of pets to add to the shelter */
 	public Shelter(T[] pets) {
 		this.pets = (T[]) new Pet[0];
 		size = 0;
@@ -21,6 +25,8 @@ public class Shelter<T extends Pet> {
 		}
 	}
 	
+	/** This method adds a pet to the shelter and resizes the array.
+	 * @param pet - The pet to add to the shelter */
 	public void addPet(T pet) {
 		try {
 			pets[size] = pet;
@@ -32,6 +38,9 @@ public class Shelter<T extends Pet> {
 		size = size + 1;
 	}
 	
+	/** This method removes a pet from the shelter and resizes the array.
+	 * @param pet - The pet to remove from the shelter
+	 * @return true on successful removal and false if the pet could not be found in the shelter */
 	public boolean removePet(T pet) {
 		boolean petFound = false;
 		for (int i = 0; i < size; i++) {
@@ -63,6 +72,33 @@ public class Shelter<T extends Pet> {
 		return false;
 	}
 	
+	/** Accessor method for pet array
+	 * @return The array of pets in the shelter */
+	public T[] getPets() {
+		return pets;
+	}
+
+	/** Mutator method for pet array, sets the shelter to a new array of pets, adds the non-null members of the array to the shelter and sizes the array accordingly
+	 * @param pets - The array of pets to set in the shelter */
+	public void setPets(T[] pets) {
+		for (int i = 0; i < size; i++) {
+			this.pets[i] = null;
+		}
+		size = 0;
+		resize(size);
+		for (int i = 0; i < pets.length; i++) {
+			if (pets[i] != null) {
+				addPet(pets[i]);
+			}
+		}
+	}
+
+	/** Accessor method for size
+	 * @return the number of pets in the shelter */
+	public int getSize() {
+		return size;
+	}
+
 	private void resize(int size) {
 		T[] resizeArray = (T[]) new Pet[size];
 		for (int i = 0; i < size; i++) {
