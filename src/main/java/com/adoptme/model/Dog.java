@@ -6,4 +6,10 @@ public class Dog extends Pet {
 		super(id, name, type, species, age, adopted);
 	}
 
+	@Override
+	public String toString() {
+		return "Dog [id=" + id + ", name=" + name + ", type=" + type + ", species=" + species + ", age=" + age
+				+ ", adopted=" + adopted + "]";
+	}
+	
 }
