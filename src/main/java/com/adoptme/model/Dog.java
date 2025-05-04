@@ -1,5 +1,5 @@
 package main.java.com.adoptme.model;
 
-public class Dog {
+public class Dog extends Pet {
 
 }
