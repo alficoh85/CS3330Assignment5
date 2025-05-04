@@ -1,5 +1,6 @@
 package main.java.com.adoptme.model;
 
+/** The Pet class is an abstract class that provides the outline for an adoptable pet class */
 public abstract class Pet {
     protected int id;
     protected String name;
