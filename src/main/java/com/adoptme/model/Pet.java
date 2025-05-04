@@ -57,12 +57,4 @@ public abstract class Pet {
 	public void setAdopted(boolean adopted) {
 		this.adopted = adopted;
 	}
-	
-	public boolean adopt() {
-		if (isAdopted() == false) {
-			setAdopted(true);
-			return true;
-		}
-		return false;
-	}
 }
