@@ -41,6 +41,7 @@ public class View extends JFrame{
         controlPanel.add(sortComboBox);
         add(controlPanel, BorderLayout.NORTH);
 	}
+	
 	public Pet showAddPetDialog() {
 		// TODO Auto-generated method stub
 		return null;
@@ -55,13 +56,12 @@ public class View extends JFrame{
 	}
 
 	public String getSelectedPetId() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
-	public Object getSortComboBox() {
-		// TODO Auto-generated method stub
-		return null;
+	public JComboBox<String> getSortComboBox() {
+		return sortComboBox;
 	}
 
 	public Object getSelectedItem() {
@@ -74,14 +74,12 @@ public class View extends JFrame{
 		
 	}
 
-	public Object getAddButton() {
-		// TODO Auto-generated method stub
-		return null;
+	public JButton getAddButton() {
+		return addButton;
 	}
 
 	public Object getRemoveButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return removeButton;
 	}
 
 }
