@@ -16,6 +16,31 @@ public class View extends JFrame{
 	private final JButton removeButton;
 	private final JComboBox<String> sortComboBox;
 
+	public View() {
+		super("AdoptMe Shelter");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(700, 400);
+		setLocationRelativeTo(null);
+		
+		tableModel= new DefaultTableModel(new Object[] {"ID", "Name", "Type", "Species", "Age"}, 0) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		petTable = new JTable(tableModel);
+		add(new JScrollPane(petTable), BorderLayout.CENTER);
+		
+		JPanel controlPanel = new JPanel();
+        addButton = new JButton("Add Pet");
+        removeButton = new JButton("Remove Pet");
+        sortComboBox = new JComboBox<>(new String[]{"None", "Name", "Age", "Species"});
+        controlPanel.add(addButton);
+        controlPanel.add(removeButton);
+        controlPanel.add(new JLabel("Sort by:"));
+        controlPanel.add(sortComboBox);
+        add(controlPanel, BorderLayout.NORTH);
+	}
 	public Pet showAddPetDialog() {
 		// TODO Auto-generated method stub
 		return null;
