@@ -1,10 +1,20 @@
 package main.java.com.adoptme.view;
 
 import java.util.List;
-
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import main.java.com.adoptme.model.Pet;
+import main.java.com.adoptme.model.Dog;
+import main.java.com.adoptme.model.Cat;
+import main.java.com.adoptme.model.Rabbit;
 
-public class View {
+public class View extends JFrame{
+	private final JTable petTable;
+	private final DefaultTableModel tableModel;
+	private final JButton addButton;
+	private final JButton removeButton;
+	private final JComboBox<String> sortComboBox;
 
 	public Pet showAddPetDialog() {
 		// TODO Auto-generated method stub
@@ -12,13 +22,11 @@ public class View {
 	}
 
 	public void showMessage(String string) {
-		// TODO Auto-generated method stub
-		
+		JOptionPane.showMessageDialog(this, message);
 	}
 
 	public void showError(String string) {
-		// TODO Auto-generated method stub
-		
+		JOptionPane.showMessageDialog(this, error,"Error", JOptionPane.ERROR_MESSAGE);;
 	}
 
 	public String getSelectedPetId() {
