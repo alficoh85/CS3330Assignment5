@@ -98,6 +98,23 @@ public class Shelter<T extends Pet> {
 	public int getSize() {
 		return size;
 	}
+	
+	/** Method that finds the index of a given pet
+	 * @param pet - The Pet object to find the index of
+	 * @return The index of the pet in the array or -1 on failure */
+	public int getIndex(T pet) {
+		for (int i = 0; i < size; i++) {
+			if (pets[i] == pet) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	@Override
+	public String toString() {
+		return "Shelter [pets=" + Arrays.toString(pets) + "]";
+	}
 
 	private void resize(int size) {
 		T[] resizeArray = (T[]) new Pet[size];
@@ -109,9 +126,5 @@ public class Shelter<T extends Pet> {
         }
         pets = resizeArray;
 	}
-
-	@Override
-	public String toString() {
-		return "Shelter [pets=" + Arrays.toString(pets) + "]";
-	}
+	
 }
