@@ -19,7 +19,7 @@ public class AnimalControl {
 	public void initController() {
 		refreshPetTable();
 		view.getAddButton().addActionListener(e -> onAddPet());
-		view.getAdoptButton().addActionListener(e -> onAdoptPet());
+		view.getRemoveButton().addActionListener(e -> onRemovePet());
 		view.getSortComboBox().addActionListener(e -> onSortSelection());
 		view.getSaveButton().addActionListener(e -> onSave());
 	}
@@ -28,7 +28,7 @@ public class AnimalControl {
 		try {
 			Pet newPet = view.showAddPetDialog();
 			if (newPet != null) {
-				model.add(newPet);
+				model.addPet(newPet);
 				refreshPetTable();
 				view.showMessage("Pet added successfully.")
 			}
@@ -38,8 +38,28 @@ public class AnimalControl {
 		}
 	}
 	
-	private void onAdoptPet() {
-		
+	private void onRemovePet() {
+		String selectedId = view.getSelectedPetId();
+		if(selectedId == null) {
+			view.showError("Please select a pet to remove.");
+			return;
+		}
+		Pet[] petsArray = model.getPets();
+		int size = model.getSize();
+		Pet target = null;
+		for(int i=0; i<size; i++) {
+			Pet p = petsArray[i];
+			if(p!=null && selectedId.equals(p.getId())) {
+				target = p;
+				break;
+			}
+		}
+		if(target != null && model.removePet(target)) {
+			refreshPetTable();
+			view.showMessage("Pet removed from shelter.");
+		} else {
+			view.showError("Unable to remove pet.");
+		}
 	}
 	
 	private void onSortSelection() {
