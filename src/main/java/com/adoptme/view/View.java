@@ -50,7 +50,7 @@ public class View extends JFrame{
         JTextField ageField = new JTextField();
 		
         JPanel panel = new JPanel(new GridLayout(0,1));
-        panel.add(new Jlabel("ID:")); panel.add(idField);
+        panel.add(new JLabel("ID:")); panel.add(idField);
         panel.add(new JLabel("Name:")); panel.add(nameField);
         panel.add(new JLabel("Type:")); panel.add(typeBox);
         panel.add(new JLabel("Species:")); panel.add(speciesField);
@@ -59,19 +59,36 @@ public class View extends JFrame{
         int result = JOptionPane.showConfirmDialog(this, panel, "Add New Pet", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if(result == JOptionPane.OK_OPTION) {
         	try {
-        		
+        		String id = idField.getText().trim();
+                String name = nameField.getText().trim();
+                String type = (String) typeBox.getSelectedItem();
+                String species = speciesField.getText().trim();
+                int age = Integer.parseInt(ageField.getText().trim());
+                
+                switch (type) {
+                    case "Dog":
+                        return new Dog(id, name, species, age, rootPaneCheckingEnabled);
+                    case "Cat":
+                        return new Cat(id, name, species, age, rootPaneCheckingEnabled);
+                    case "Rabbit":
+                        return new Rabbit(id, name, species, age, rootPaneCheckingEnabled);
+                    default:
+                        return null;
+                }
+            } catch (NumberFormatException nfe) {
+                showError("Age must be a valid integer.");
         	}
         }
-        
         return null;
 	}
 
 	public void showMessage(String string) {
+		Object message = null;
 		JOptionPane.showMessageDialog(this, message);
 	}
 
 	public void showError(String string) {
-		JOptionPane.showMessageDialog(this, error,"Error", JOptionPane.ERROR_MESSAGE);;
+		JOptionPane.showMessageDialog(this, ERROR,"Error", JOptionPane.ERROR_MESSAGE);;
 	}
 
 	public String getSelectedPetId() {
