@@ -25,7 +25,17 @@ public class AnimalControl {
 	}
 	
 	private void onAddPet() {
-		
+		try {
+			Pet newPet = view.showAddPetDialog();
+			if (newPet != null) {
+				model.add(newPet);
+				refreshPetTable();
+				view.showMessage("Pet added successfully.")
+			}
+		}
+		catch(Exception ex) {
+			view.showError("Failed to add pet: " + ex.getMessage());
+		}
 	}
 	
 	private void onAdoptPet() {
