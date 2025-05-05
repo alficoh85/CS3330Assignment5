@@ -24,4 +24,9 @@ public class View {
 		return null;
 	}
 
+	public Object getSortComboBox() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
