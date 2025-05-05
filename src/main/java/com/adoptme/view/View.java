@@ -31,6 +31,11 @@ public class View {
 		return null;
 	}
 
+	public Object getSelectedItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public void updatePetTable(List<Pet> list) {
 		// TODO Auto-generated method stub
 		
