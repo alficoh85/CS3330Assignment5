@@ -1,5 +1,6 @@
 package main.java.com.adoptme.model;
 
+/** The Dog class is a subclass of Pet. */
 public class Dog extends Pet {
 
     /** Parameterized constructor, creates a new Dog object

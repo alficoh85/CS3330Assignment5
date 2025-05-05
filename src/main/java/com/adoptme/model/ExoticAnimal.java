@@ -81,4 +81,10 @@ public class ExoticAnimal {
 	public void setYearsOld(int yearsOld) {
 		this.yearsOld = yearsOld;
 	}
+
+	@Override
+	public String toString() {
+		return "ExoticAnimal [uniqueId=" + uniqueId + ", animalName=" + animalName + ", category=" + category
+				+ ", subSpecies=" + subSpecies + ", yearsOld=" + yearsOld + "]";
+	}
 }
