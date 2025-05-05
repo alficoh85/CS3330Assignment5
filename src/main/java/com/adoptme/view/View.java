@@ -43,8 +43,27 @@ public class View extends JFrame{
 	}
 	
 	public Pet showAddPetDialog() {
-		// TODO Auto-generated method stub
-		return null;
+		JTextField idField = new JTextField();
+        JTextField nameField = new JTextField();
+        JComboBox<String> typeBox = new JComboBox<>(new String[]{"Dog", "Cat", "Rabbit"});
+        JTextField speciesField = new JTextField();
+        JTextField ageField = new JTextField();
+		
+        JPanel panel = new JPanel(new GridLayout(0,1));
+        panel.add(new Jlabel("ID:")); panel.add(idField);
+        panel.add(new JLabel("Name:")); panel.add(nameField);
+        panel.add(new JLabel("Type:")); panel.add(typeBox);
+        panel.add(new JLabel("Species:")); panel.add(speciesField);
+        panel.add(new JLabel("Age:")); panel.add(ageField);
+        
+        int result = JOptionPane.showConfirmDialog(this, panel, "Add New Pet", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if(result == JOptionPane.OK_OPTION) {
+        	try {
+        		
+        	}
+        }
+        
+        return null;
 	}
 
 	public void showMessage(String string) {
