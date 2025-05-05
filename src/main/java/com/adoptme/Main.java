@@ -14,6 +14,6 @@ public class Main {
 			AnimalControl controller = new AnimalControl(shelter, view);
 			controller.initController();
 			view.setVisible(true);
-		}
+		});
 	}
 }
