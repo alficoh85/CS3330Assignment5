@@ -2,39 +2,29 @@ package main.java.com.adoptme.model;
 
 /** The Pet class is an abstract class that provides the outline for an adoptable pet class */
 public abstract class Pet {
-    protected int id;
+    protected String id;
     protected String name;
     protected String type;
     protected String species;
     protected int age;
     protected boolean adopted;
-    
-    /** Parameterized constructor, creates a new Pet object
-     * @param id - The ID of the pet
-     * @param name - The name of the pet
-     * @param type - The specific animal the pet is (cat, dog, rabbit, etc.)
-     * @param species - The specific species of the pet (Golden Retriever, Siamese, German Shepherd, etc.)
-     * @param age - How many years old the pet is
-     * @param adopted - Whether or not the pet has been adopted */
-	public Pet(int id, String name, String type, String species, int age, boolean adopted) {
-		this.id = id;
-		this.name = name;
-		this.type = type;
-		this.species = species;
-		this.age = age;
-		this.adopted = adopted;
-	}
 
 	/** Accessor method for id
 	 * @return The pet's ID */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
 	/** Mutator method for id, sets a pet's ID
-	 * @param id - The new ID to set the pet to */
-	public void setId(int id) {
+	 * @param id - The new ID to set the pet to as a String */
+	public void setId(String id) {
 		this.id = id;
+	}
+	
+	/** Mutator method for id, sets a pet's ID
+	 * @param id - The new ID to set the pet to as an int */
+	public void setId(int id) {
+		this.id = Integer.toString(id);
 	}
 	
 	/** Accessor method for name
