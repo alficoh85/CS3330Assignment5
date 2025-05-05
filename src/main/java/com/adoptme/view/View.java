@@ -56,7 +56,10 @@ public class View extends JFrame{
 	}
 
 	public String getSelectedPetId() {
-		
+		int row = petTable.getSelectedRow();
+		if(row >= 0) {
+			return tableModel.getValueAt(row, 0).toString();
+		}
 		return null;
 	}
 
@@ -70,8 +73,12 @@ public class View extends JFrame{
 	}
 	
 	public void updatePetTable(List<Pet> list) {
-		// TODO Auto-generated method stub
-		
+		tableModel.setRowCount(0);
+		for(Pet p : list) {
+			tableModel.addRow
+			(new Object[]{p.getId(), p.getName(), p.getType(), p.getSpecies(), p.getAge()
+			});
+		}
 	}
 
 	public JButton getAddButton() {
