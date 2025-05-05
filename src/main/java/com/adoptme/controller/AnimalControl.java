@@ -21,7 +21,7 @@ public class AnimalControl {
 	
 	public void initController() {
 		refreshPetTable();
-		view.getAddButton().addActionListener(e -> onAddPet());
+		view.getAddButton()).addActionListener(e -> onAddPet());
 		view.getRemoveButton().addActionListener(e -> onRemovePet());
 		view.getSortComboBox().addActionListener(e -> onSortSelection());
 	}

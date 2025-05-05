@@ -36,4 +36,14 @@ public class View {
 		
 	}
 
+	public Object getAddButton() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getRemoveButton() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
