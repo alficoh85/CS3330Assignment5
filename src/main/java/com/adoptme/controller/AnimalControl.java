@@ -3,7 +3,6 @@ package main.java.com.adoptme.controller;
 import main.java.com.adoptme.model.Pet;
 import main.java.com.adoptme.model.Shelter;
 import main.java.com.adoptme.view.View;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -19,11 +18,11 @@ public class AnimalControl {
 	}
 	
 	public void initController() {
-		refreshPetTable();
-		view.getAddButton()).addActionListener(e -> onAddPet());
-		view.getRemoveButton().addActionListener(e -> onRemovePet());
-		view.getSortComboBox().addActionListener(e -> onSortSelection());
-	}
+        refreshPetTable();
+        view.getAddButton().addActionListener(e -> onAddPet());
+        view.getRemoveButton().addActionListener(e -> onRemovePet());
+        view.getSortComboBox().addActionListener(e -> onSortSelection());
+    }
 	
 	private void onAddPet() {
 		try {
@@ -31,7 +30,7 @@ public class AnimalControl {
 			if (newPet != null) {
 				model.addPet(newPet);
 				refreshPetTable();
-				view.showMessage("Pet added successfully.")
+				view.showMessage("Pet added successfully.");
 			}
 		}
 		catch(Exception ex) {

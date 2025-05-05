@@ -102,11 +102,6 @@ public class View extends JFrame{
 	public JComboBox<String> getSortComboBox() {
 		return sortComboBox;
 	}
-
-	public Object getSelectedItem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public void updatePetTable(List<Pet> list) {
 		tableModel.setRowCount(0);
@@ -121,7 +116,7 @@ public class View extends JFrame{
 		return addButton;
 	}
 
-	public Object getRemoveButton() {
+	public JButton getRemoveButton() {
 		return removeButton;
 	}
 
