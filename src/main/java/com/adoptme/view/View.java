@@ -1,5 +1,7 @@
 package main.java.com.adoptme.view;
 
+import java.util.List;
+
 import main.java.com.adoptme.model.Pet;
 
 public class View {
@@ -27,6 +29,11 @@ public class View {
 	public Object getSortComboBox() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void updatePetTable(List<Pet> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
